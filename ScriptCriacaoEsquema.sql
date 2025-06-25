@@ -28,6 +28,7 @@ CREATE TABLE professor(
     PRIMARY KEY (idProfessor),
     FOREIGN KEY (idProfessor) REFERENCES pessoa (idPessoa)
     ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 CREATE TABLE disciplina(
@@ -97,5 +98,4 @@ CREATE TABLE contato(
     PRIMARY KEY (nome, idAluno),
     FOREIGN KEY (idAluno) REFERENCES aluno (idAluno)
     ON UPDATE CASCADE
-    ON DELETE CASCADE
 );
