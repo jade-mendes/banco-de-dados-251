@@ -1,6 +1,9 @@
 #1) Listar o nome e a cidade das escolas onde todos os alunos residam na mesma cidade onde a escola está localizada.
+
 #2) Listar o nome e matrícula dos alunos sem nenhum contato cadastrado.
-select pessoa.nome, matricula from aluno, pessoa where not exists (select * from contato where contato.idAluno = aluno.idAluno) and pessoa.idPessoa = aluno.idAluno;
+select pessoa.nome, matricula 
+from aluno, pessoa 
+where not exists (select * from contato where contato.idAluno = aluno.idAluno) and pessoa.idPessoa = aluno.idAluno;
 
 #3) Listar o código e nome das turmas com mais de 5 alunos.
 select turma.idTurma as "Codigo Turma", turma.nome from turma where idTurma in (select idTurma from aluno group by idTurma having count(aluno.idAluno) > 5);
