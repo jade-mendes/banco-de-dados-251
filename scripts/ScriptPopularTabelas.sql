@@ -33,7 +33,7 @@ insert into pessoa (idPessoa, nome, telefone, idCidade) values
 #professores na escola da uff
 insert into professor (idProfessor, RG, CPF, titulacao) values 
 (GetIdPessoa("Antonio"), "423561785", "34798241620", "Doutor"),
-(GetIdPessoa("Patrick"), "347892067", "03432572898", "Rei, Imperador Supremo, Lider Incondicional, Mago da Nevoa, Pos-Doc");
+(GetIdPessoa("Patrick"), "347892067", "03432572898", "Doutor");
 
 #escolas
 insert into escola (idEscola, nome, idCidade, idDiretor) values 

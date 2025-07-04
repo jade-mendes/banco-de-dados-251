@@ -86,7 +86,8 @@ CREATE TABLE aluno(
     idTurma INT NOT NULL,
     PRIMARY KEY (idAluno),
     FOREIGN KEY (idAluno) REFERENCES pessoa (idPessoa)
-    ON UPDATE CASCADE,
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
     FOREIGN KEY (idTurma) REFERENCES turma (idTurma)
     ON UPDATE CASCADE
 );
