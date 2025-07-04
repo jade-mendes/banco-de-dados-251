@@ -44,6 +44,9 @@ insert into escola (idEscola, nome, idCidade, idDiretor) values
 insert into turma (idTurma, nome, idEscola) values 
 (default, "Turma 1", GetIdEscola("Escola da UFF"));
 
+insert into turma (idTurma, nome, idEscola) values 
+(default, "Turma 2", GetIdEscola("Escola da UFF"));
+
 #turmas na escola Felicidade
 insert into turma (idTurma, nome, idEscola) values
 (default, "Turma Feliz 1", GetIdEscola("Felicidade"));
@@ -64,11 +67,15 @@ insert into contato (nome, telefone, idAluno) values
 
 #ministra
 insert into ministra (idProfessor, idDisciplina) values
-(GetIdProfessor("Patrick"), GetIdDisciplina("Matemática"),
-(GetIdProfessor("Antonio"), GetIdDisciplina("História"))
-);
+(GetIdProfessor("Patrick"), GetIdDisciplina("Matematica")),
+(GetIdProfessor("Antonio"), GetIdDisciplina("Historia"));
 
 #ministraTurma
 insert into ministraTurma (idTurma, idProfessor, idDisciplina) values
-(GetIdTurma("Turma 1"), GetIdProfessor("Patrick"), GetIdDisciplina("Matemática")
-);
+(GetIdTurma("Turma 1", "Escola da UFF"), GetIdProfessor("Patrick"), GetIdDisciplina("Matematica"));
+
+insert into ministraTurma (idTurma, idProfessor, idDisciplina) values
+(GetIdTurma("Turma 2", "Escola da UFF"), GetIdProfessor("Patrick"), GetIdDisciplina("Matematica"));
+
+insert into ministraTurma (idTurma, idProfessor, idDisciplina) values
+(GetIdTurma("Turma Feliz 1", "Felicidade"), GetIdProfessor("Patrick"), GetIdDisciplina("Matematica"));

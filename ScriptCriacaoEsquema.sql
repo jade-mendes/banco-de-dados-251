@@ -1,6 +1,6 @@
 DROP SCHEMA IF EXISTS CadastroDeEscolas;
 
-CREATE SCHEMA IF NOT EXISTS CadastroDeEscolas;
+CREATE SCHEMA CadastroDeEscolas;
 
 USE CadastroDeEscolas;
 
