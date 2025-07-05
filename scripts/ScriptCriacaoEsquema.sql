@@ -5,13 +5,13 @@ CREATE SCHEMA CadastroDeEscolas;
 USE CadastroDeEscolas;
 
 CREATE TABLE cidade(
-	idCidade INT NOT NULL AUTO_INCREMENT,
+	idCidade INT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     PRIMARY KEY (idCidade)
 );
 
 CREATE TABLE pessoa(
-	idPessoa INT NOT NULL AUTO_INCREMENT,
+	idPessoa INT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     telefone CHAR(11) NOT NULL,
     idCidade INT NOT NULL,
@@ -32,13 +32,13 @@ CREATE TABLE professor(
 );
 
 CREATE TABLE disciplina(
-	idDisciplina INT NOT NULL AUTO_INCREMENT,
+	idDisciplina INT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     PRIMARY KEY (idDisciplina)
 );
 
 CREATE TABLE escola(
-	idEscola INT NOT NULL AUTO_INCREMENT,
+	idEscola INT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     idCidade INT NOT NULL,
     idDiretor INT NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE escola(
 );
 
 CREATE TABLE turma(
-	idTurma INT NOT NULL AUTO_INCREMENT,
+	idTurma INT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     idEscola INT NOT NULL,
     PRIMARY KEY (idTurma),
@@ -94,7 +94,7 @@ CREATE TABLE aluno(
 
 CREATE TABLE contato(
 	nome VARCHAR(255) NOT NULL,
-    telefone CHAR(9) NOT NULL,
+    telefone CHAR(11) NOT NULL,
     idAluno INT NOT NULL,
     PRIMARY KEY (nome, idAluno),
     FOREIGN KEY (idAluno) REFERENCES aluno (idAluno)
