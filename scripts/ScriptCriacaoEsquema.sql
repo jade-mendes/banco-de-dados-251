@@ -17,7 +17,6 @@ CREATE TABLE pessoa(
     idCidade INT NOT NULL,
     PRIMARY KEY (idPessoa),
     FOREIGN KEY (idCidade) REFERENCES cidade (idCidade)
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE professor(
@@ -26,6 +25,8 @@ CREATE TABLE professor(
     CPF CHAR(14) NOT NULL,
     titulacao VARCHAR(255) NOT NULL,
     PRIMARY KEY (idProfessor),
+    UNIQUE KEY (RG),
+    UNIQUE KEY (CPF),
     FOREIGN KEY (idProfessor) REFERENCES pessoa (idPessoa)
     ON UPDATE CASCADE
     ON DELETE CASCADE
@@ -43,10 +44,8 @@ CREATE TABLE escola(
     idCidade INT NOT NULL,
     idDiretor INT NOT NULL,
     PRIMARY KEY (idEscola),
-    FOREIGN KEY (idCidade) REFERENCES cidade (idCidade)
-    ON UPDATE CASCADE,
+    FOREIGN KEY (idCidade) REFERENCES cidade (idCidade),
     FOREIGN KEY (idDiretor) REFERENCES professor (idProfessor)
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE turma(
@@ -55,17 +54,14 @@ CREATE TABLE turma(
     idEscola INT NOT NULL,
     PRIMARY KEY (idTurma),
     FOREIGN KEY (idEscola) REFERENCES escola (idEscola)
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE ministra(
 	idProfessor INT NOT NULL,
     idDisciplina INT NOT NULL,
     PRIMARY KEY (idProfessor, idDisciplina),
-    FOREIGN KEY (idProfessor) REFERENCES professor (idProfessor)
-    ON UPDATE CASCADE,
+    FOREIGN KEY (idProfessor) REFERENCES professor (idProfessor),
     FOREIGN KEY (idDisciplina) REFERENCES disciplina (idDisciplina)
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE ministraTurma(
@@ -73,10 +69,8 @@ CREATE TABLE ministraTurma(
     idProfessor INT NOT NULL,
     idDisciplina INT NOT NULL,
     PRIMARY KEY (idTurma, idProfessor, idDisciplina),
-    FOREIGN KEY (idTurma) REFERENCES turma (idTurma)
-    ON UPDATE CASCADE,
+    FOREIGN KEY (idTurma) REFERENCES turma (idTurma),
     FOREIGN KEY (idProfessor, idDisciplina) REFERENCES ministra (idProfessor, idDisciplina)
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE aluno(
@@ -89,7 +83,6 @@ CREATE TABLE aluno(
     ON UPDATE CASCADE
     ON DELETE CASCADE,
     FOREIGN KEY (idTurma) REFERENCES turma (idTurma)
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE contato(
@@ -98,5 +91,4 @@ CREATE TABLE contato(
     idAluno INT NOT NULL,
     PRIMARY KEY (nome, idAluno),
     FOREIGN KEY (idAluno) REFERENCES aluno (idAluno)
-    ON UPDATE CASCADE
 );

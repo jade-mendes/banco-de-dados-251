@@ -8,7 +8,7 @@ where idAluno = 6; # Ana
 qualquer. Caso o professor seja diretor de uma escola um novo diretor deverá ser
 definido. */
 update escola
-set idDiretor = 1 # Antonio
+set idDiretor = 14 # Ingrid
 where idDiretor = 7; # Patrick
 
 delete from ministraTurma
@@ -17,8 +17,8 @@ where idProfessor = 7; # Patrick
 delete from ministra
 where idProfessor = 7; # Patrick
 
-delete from professor
-where idProfessor = 7; # Patrick
+delete from pessoa
+where idPessoa = 7; # Patrick
 
 /* 3) Considerando que um Professor P1 precisou sair de licença médica, substituí-lo por
 outro Professor P2 em todas as turmas onde P1 ministra disciplinas. Importante: Caso o
